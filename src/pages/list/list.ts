@@ -39,7 +39,6 @@ export class ListPage {
         }
         rowNum++;
       }
-
     });
 
     this.color = localStorage.getItem('back_color');
