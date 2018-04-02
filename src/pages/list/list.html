@@ -1,279 +1,137 @@
-<ion-header>
-  <ion-navbar *ngIf="color">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title [style.background]="color">List</ion-title>
-  </ion-navbar>
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-</ion-header>
-
-<ion-content>
-
-  <div padding>
-    <ion-segment [(ngModel)]="pet">
-      <ion-segment-button value="segment1">
-        Segment1
-      </ion-segment-button>
-      <ion-segment-button value="segment2">
-        Segment2
-      </ion-segment-button>
-    </ion-segment>
-  </div>
-
-  <div [ngSwitch]="pet">
-    <ion-list *ngSwitchCase="'segment1'">
-      <div *ngIf="false">
-        <ion-item-sliding *ngFor="let item of items">
-          <ion-item *ngIf="config">
-            <ion-thumbnail item-start *ngIf="config.icon_image && config.icon && !config.number_circle">
-              <img [src]="config.icon_image">
-            </ion-thumbnail>
-            <!-- <ion-thumbnail item-start *ngIf="config.number_circle">
-                    <ion-icon class="numberCircle">{{item.title | slice:0:2}}</ion-icon>
-                  </ion-thumbnail> -->
-            <h2>{{item.title}}</h2>
-            <p>{{item.description}}</p>
-          </ion-item>
-          <ion-item-options side="right">
-            <button ion-button (click)="presentModal(item)">View</button>
-            <button ion-button color="danger" (click)="Delete(item)">Delete</button>
-          </ion-item-options>
-        </ion-item-sliding>
-      </div>
-
-      <div *ngIf="false">
-        <div *ngIf="config">
-        <ion-card *ngFor="let item of items">
-          <img [src]="config.icon_image"/>
-          <ion-card-content>
-            <ion-card-title>
-                {{item.title}}
-            </ion-card-title>
-            <p>
-                {{item.description}}
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </div>
-      </div>
-
-      <div *ngIf="false">
-        <ion-card>
-            <ion-card-content>
-          <ion-grid *ngIf="config && items">
-              <ion-row wrap class="ionrow" *ngFor="let row of grid">
-                <ion-col col-6 *ngFor="let file_uri of row">
-                  <img [src]="config.icon_image">
-                  <h2>{{file_uri.title}}</h2>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-            </ion-card-content>
-          </ion-card>
-      </div>
-
-      <div *ngIf="true">
-          <ion-card>
-              <ion-card-content>
-            <ion-grid *ngIf="config && items">
-                <ion-row wrap class="ionrow" *ngFor="let row of grid">
-                  <ion-col col-6 *ngFor="let file_uri of row">
-                    <img [src]="config.icon_image">
-                    <h2>{{file_uri.title}}</h2>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-              </ion-card-content>
-            </ion-card>
+<ion-header class ="commom-color">
+    <ion-navbar *ngIf="color">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title [style.background]="color">List</ion-title>
+    </ion-navbar>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-header>
+  
+  <ion-content>
+  
+      <div padding >
+          <ion-segment [(ngModel)]="pet">
+            <ion-segment-button value="segment1">
+                Today's Deals
+            </ion-segment-button>
+            <ion-segment-button value="segment2">
+                Sell
+            </ion-segment-button>
+          </ion-segment>
         </div>
-
-    </ion-list>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <ion-list *ngSwitchCase="'segment2'">
-
-      <ion-card (click)="saa">
-
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="card-amsterdam.png">
-          </ion-avatar>
-          <h2>Marty McFly</h2>
-          <p>November 5, 1955</p>
-        </ion-item>
-
-        <img src="card-amsterdam.png">
-
-        <ion-card-content>
-          <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?!
-            Whoa. This is heavy.</p>
-        </ion-card-content>
-
-        <ion-row>
-          <ion-col>
-            <button ion-button icon-left clear small>
-              <ion-icon name="thumbs-up"></ion-icon>
-              <div>12 Likes</div>
-            </button>
-          </ion-col>
-          <ion-col>
-            <button ion-button icon-left clear small>
-              <ion-icon name="text"></ion-icon>
-              <div>4 Comments</div>
-            </button>
-          </ion-col>
-          <ion-col center text-center>
-            <ion-note>
-              11h ago
-            </ion-note>
-          </ion-col>
-        </ion-row>
-
-      </ion-card>
-
-      <ion-grid>
-        <ion-card style="height: 150px;">
-          <img src="assets/imgs/card-saopaolo.png" />
+        
+        <div [ngSwitch]="pet">
+          <ion-list *ngSwitchCase="'segment1'">
+              <ion-item-sliding *ngFor="let item of items">
+                  <ion-item *ngIf="config">
+                    <ion-avatar item-start *ngIf="config.icon_image && config.icon && !config.number_circle">
+                      <img [src]="config.icon_image">
+                    </ion-avatar>
+                    <ion-avatar item-start *ngIf="config.number_circle">
+                      <ion-icon class="numberCircle">{{item.title | slice:0:2}}</ion-icon>
+                    </ion-avatar>
+                    <h2>{{item.title}}</h2>
+                    <p>{{item.description}}</p>
+                  </ion-item>
+                  <ion-item-options side="right">
+                    <button ion-button (click)="presentModal(item)">View</button>
+                    <button ion-button color="danger" (click)="Delete(item)">Delete</button>
+                  </ion-item-options>
+                </ion-item-sliding>
+          </ion-list>
+        
+          <ion-list *ngSwitchCase="'segment2'">
+            
+   
+  
+  <ion-grid style="background: #c1bfbf;">
+      <ion-card style="height: 150px;">
+          <img src="assets/imgs/41R9FArsBDL._AC_SY200_.jpg"/>
           <div class="card-title">São Paulo</div>
           <div class="card-subtitle">41 Listings</div>
         </ion-card>
-
-        <ion-card style="height: 102px;">
-          <img src="assets/imgs/card-amsterdam.png" />
-          <div class="card-title">Amsterdam</div>
-          <div class="card-subtitle">64 Listings</div>
-        </ion-card>
-
-        <ion-card>
-          <img src="assets/imgs/card-sf.png" />
-          <div class="card-title">San Francisco</div>
-          <div class="card-subtitle">72 Listings</div>
-        </ion-card>
-
-        <ion-card>
-          <img src="assets/imgs/card-madison.png" />
-          <div class="card-title">Madison</div>
-          <div class="card-subtitle">28 Listings</div>
-        </ion-card>
-
-        <ion-card>
-          <ion-slides style="height: 150px;">
-
-            <ion-slide style="background-color: rgb(237, 238, 237)">
-              <img src="assets/imgs/Email-CorpEmail_500x500._CB499963220__AC_SY200_.jpg" />
-              <h2>Slide 1</h2>
-            </ion-slide>
-
-            <ion-slide style="background-color: rgb(237, 238, 237)">
-              <h2>Slide 2</h2>
-            </ion-slide>
-
-            <ion-slide style="background-color: rgb(237, 238, 237)">
-              <h2>Slide 3</h2>
-            </ion-slide>
-
-          </ion-slides>
-        </ion-card>
-
-        <ion-card>
-          <ion-card-header>
-            Explore Nearby
-          </ion-card-header>
-
-          <ion-list>
-            <button ion-item>
-              <ion-icon name="cart" item-start></ion-icon>
-              Shopping
-            </button>
-
-            <button ion-item>
-              <ion-icon name="medical" item-start></ion-icon>
-              Hospital
-            </button>
-
-            <button ion-item>
-              <ion-icon name="cafe" item-start></ion-icon>
-              Cafe
-            </button>
-
-            <button ion-item>
-              <ion-icon name="paw" item-start></ion-icon>
-              Dog Park
-            </button>
-
-
-          </ion-list>
-        </ion-card>
-
-
-
-      </ion-grid>
+     
+       
+  <ion-card>
+    <ion-slides pager style="height: 150px;">
+  
+    <ion-slide style="background-color: rgb(237, 238, 237)">
+        <img src=" assets/imgs/2_DB_440x200_Women_Accessories_April18._CB502513614_.jpg"/>
+       
+        
+      </ion-slide>
+    
+      <ion-slide style="background-color: rgb(237, 238, 237)">
+          <img src="assets/imgs/1057873_us_pc_hardware_siggraph_gw_desktop_billboard_440x200._CB505202194_.jpg"/>
+        
+      </ion-slide>
+    
+      <ion-slide style="background-color: rgb(237, 238, 237)">
+          <img src="assets/imgs/1_BD_440x200_Gift_April18._CB502503690_.jpg"/>
+       
+      </ion-slide>
+    
+    </ion-slides>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>
+      Deals recommended for you
+    </ion-card-header>
+  
+    <ion-list>
+      <button ion-item>
+        <ion-icon name="cart" item-start></ion-icon>
+        Shopping
+      </button>
+  
+      <button ion-item>
+        <ion-icon name="medical" item-start></ion-icon>
+        Hospital
+      </button>
+  
+      <button ion-item>
+        <ion-icon name="cafe" item-start></ion-icon>
+        Cafe
+      </button>
+  
+      <button ion-item>
+        <ion-icon name="paw" item-start></ion-icon>
+        Dog Park
+      </button>
+  
+       
     </ion-list>
-  </div>
-
-  <!-- <ion-list>
-    <ion-item-sliding *ngFor="let item of items">
-      <ion-item *ngIf="config">
-        <ion-avatar item-start *ngIf="config.icon_image && config.icon && !config.number_circle">
-          <img [src]="config.icon_image">
-        </ion-avatar>
-        <ion-avatar item-start *ngIf="config.number_circle">
-          <ion-icon class="numberCircle">{{item.title | slice:0:2}}</ion-icon>
-        </ion-avatar>
-        <h2>{{item.title}}</h2>
-        <p>{{item.description}}</p>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button (click)="presentModal(item)">View</button>
-        <button ion-button color="danger" (click)="Delete(item)">Delete</button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list> -->
-
-  <button ion-button (click)="person()" block hidden="true">Add Person</button>
-
-
-
-</ion-content>
+  </ion-card>
+  
+  
+  
+  </ion-grid>
+          </ion-list>
+        </div>
+  
+    <!-- <ion-list>
+      <ion-item-sliding *ngFor="let item of items">
+        <ion-item *ngIf="config">
+          <ion-avatar item-start *ngIf="config.icon_image && config.icon && !config.number_circle">
+            <img [src]="config.icon_image">
+          </ion-avatar>
+          <ion-avatar item-start *ngIf="config.number_circle">
+            <ion-icon class="numberCircle">{{item.title | slice:0:2}}</ion-icon>
+          </ion-avatar>
+          <h2>{{item.title}}</h2>
+          <p>{{item.description}}</p>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button (click)="presentModal(item)">View</button>
+          <button ion-button color="danger" (click)="Delete(item)">Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list> -->
+  
+    <button ion-button (click)="person()" block hidden="true">Add Person</button>
+  
+  
+    
+  </ion-content>
