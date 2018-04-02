@@ -16,7 +16,7 @@ export class ListPage {
   config: any;
   color: any;
   grid: Array<Array<string>>;
-
+  pet = "segment1";
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private http: Http, public dataservice: dataService) {
     this.selectedItem = navParams.get('item');
   }
@@ -26,6 +26,20 @@ export class ListPage {
     this.dataservice.getItems().then((data) => {
       console.log(data);
       this.items = data;
+      this.grid = Array(Math.ceil(this.items.length/2));
+      let rowNum = 0;
+      for (let i = 0; i < this.items.length; i+=2) { 
+    
+        this.grid[rowNum] = Array(2);
+        if (this.items[i]) {
+          this.grid[rowNum][0] = this.items[i];
+        }
+        if (this.items[i+1]) {
+          this.grid[rowNum][1] = this.items[i+1]
+        }
+        rowNum++;
+      }
+
     });
 
     this.color = localStorage.getItem('back_color');
