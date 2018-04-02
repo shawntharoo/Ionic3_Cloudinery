@@ -26,20 +26,6 @@ export class ListPage {
     this.dataservice.getItems().then((data) => {
       console.log(data);
       this.items = data;
-      let rowNum = 0;
-      
-      for (let i = 0; i < this.items.length; i+=2) {
-        this.grid[rowNum] = Array(2);
-        if (this.items[i]) { 
-          this.grid[rowNum][0] = this.items[i];
-        }
-    
-        if (this.items[i+1]) {
-          this.grid[rowNum][1] = this.items[i+1]
-        }
-        rowNum++;
-      }
-
     });
 
     this.color = localStorage.getItem('back_color');
@@ -70,12 +56,6 @@ export class ListPage {
       this.items = data;
     });
   }
-
-  // itemTapped(event, item) {
-  //   this.navCtrl.push(ListPage, {
-  //     item: item
-  //   });
-  // }
 
   person() {
     let data = {
