@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Welcome</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="welcome">
+    <img src="assets/imgs/welcome.png" class="logo"/>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h1>Welcome to Your App</h1>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <ion-grid >
+      <ion-row>
+        <ion-col center text-center>
+          <button ion-button full color="success" round (click)="signup()">Sign up</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col center text-center>
+          <button ion-button full color="lightText" round (click)="login()">Log in</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>

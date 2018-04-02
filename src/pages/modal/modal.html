@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Description
+      </ion-title>
+      <ion-buttons start>
+          <div class="ion-diagnostics-buttons">
+            <button id="ion-diagnostic-close" (click)="closeModal()">Close</button>
+          </div>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card *ngIf="item">
+        <ion-card-header>
+          {{item.title}}
+        </ion-card-header>
+        <ion-card-content>
+          {{item.description}}
+        </ion-card-content>
+      </ion-card>
+  </ion-content>

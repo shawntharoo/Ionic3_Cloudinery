@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar *ngIf="color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <!-- <ion-title class="title_st">List</ion-title> -->
+    <ion-title [style.background]="color">List</ion-title>
+  </ion-navbar>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items">
+      <ion-item *ngIf="config">
+        <ion-avatar item-start *ngIf="config.icon_image && config.icon && !config.number_circle">
+          <img [src]="config.icon_image">
+        </ion-avatar>
+        <ion-avatar item-start *ngIf="config.number_circle">
+          <ion-icon class="numberCircle">{{item.title | slice:0:2}}</ion-icon>
+        </ion-avatar>
+        <h2>{{item.title}}</h2>
+        <p>{{item.description}}</p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button (click)="presentModal(item)">View</button>
+        <button ion-button color="danger" (click)="Delete(item)">Delete</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+
+  <button ion-button (click)="person()" block hidden="true">Add Person</button>
+</ion-content>

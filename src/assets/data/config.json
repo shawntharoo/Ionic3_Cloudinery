@@ -1,0 +1,8 @@
+{
+    "header_color" : "white",
+    "icon" : true,
+    "icon_image" : "assets/imgs/user.png",
+    "number_circle" : false,
+    "priority" : [1,2,3,4],
+    "front_View" : "list"
+}

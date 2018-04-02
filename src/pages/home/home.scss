@@ -1,0 +1,49 @@
+page-home {
+
+.person_img_first {
+    width: 25%;
+    padding-left: 3%;
+    padding-bottom: 2%;
+}
+
+.person_img_second {
+    width: 80%;
+    padding-bottom: 2%;
+}
+
+.background_im{
+    background: url(http://buzapps.net/pages/wp-content/uploads/2016/12/knowledgebase_app_header_image_02.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+    z-index: 2;
+    position: relative;
+} 
+
+.first_label {
+    font-size: 13px;
+}
+
+.second_label {
+    font-size: 10px;
+}
+
+.numberCircle {
+    border-radius: 50%;
+    behavior: url(PIE.htc);
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    background: rgb(219, 218, 218);
+    border: 2px solid #666;
+    color: rgb(31, 29, 29);
+    text-align: center;
+    font: 16px Arial, sans-serif;
+  }
+  
+// .toolbar-background {
+//     background: red;
+//   }
+
+}

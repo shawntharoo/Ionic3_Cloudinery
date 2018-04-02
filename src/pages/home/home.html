@@ -1,0 +1,51 @@
+<ion-menu [content]="content">
+        <ion-header *ngIf="config && personInfo"> 
+          <ion-toolbar>
+            <ion-title [style.background]="config.header_color">Menu</ion-title>
+          </ion-toolbar>
+      
+          <ion-grid  class="background_im">
+              <ion-row>
+                <ion-col col-10>
+                    <ion-avatar item-start>
+                        <img [src]="personInfo.image" class="person_img_first">  
+                      </ion-avatar>
+                </ion-col>
+                <ion-col col-2>
+                    <ion-avatar item-start>
+                        <ion-icon class="numberCircle">{{personInfo.name | slice:0:1}}</ion-icon>
+                      </ion-avatar>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+      
+      
+      
+            <ion-item class="background_im">
+                <ion-label class="first_label">{{personInfo.name}}
+                <ion-label class="second_label">{{personInfo.description}}</ion-label></ion-label>
+                <ion-select [(ngModel)]="gaming" class="second_label">
+                  <ion-option value="nes">NES</ion-option>
+                  <ion-option value="n64">Nintendo64</ion-option>
+                  <ion-option value="ps">PlayStation</ion-option>
+                  <ion-option value="genesis">Sega Genesis</ion-option>
+                  <ion-option value="saturn">Sega Saturn</ion-option>
+                  <ion-option value="snes">SNES</ion-option>
+                </ion-select>
+              </ion-item>
+        </ion-header>
+      
+        <ion-content>
+            <ion-list>
+                <ion-item  menuClose *ngFor="let p of pages">
+                  <ion-icon [name]="p.image" item-start></ion-icon>
+                  <p (click)="openPage(p)">{{p.title}}</p>
+                  <ion-icon name=arrow-forward item-end></ion-icon>
+                </ion-item>
+              </ion-list>
+      
+        </ion-content>
+      
+      </ion-menu>
+      
+      <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
