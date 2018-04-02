@@ -59,12 +59,122 @@
         </ion-list>
       
         <ion-list *ngSwitchCase="'segment2'">
-          <ion-item>
-            <ion-thumbnail item-start>
-              <img src="img/thumbnail-kitten-1.jpg">
-            </ion-thumbnail>
-            <h2>Luna</h2>
-          </ion-item>
+          
+  <ion-card (click)="saa">
+    
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="card-amsterdam.png">
+        </ion-avatar>
+        <h2>Marty McFly</h2>
+        <p>November 5, 1955</p>
+      </ion-item>
+    
+      <img src="card-amsterdam.png">
+    
+      <ion-card-content>
+        <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+      </ion-card-content>
+    
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>12 Likes</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>4 Comments</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            11h ago
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    
+    </ion-card>
+
+<ion-grid>
+    <ion-card style="height: 150px;">
+        <img src="assets/imgs/card-saopaolo.png"/>
+        <div class="card-title">São Paulo</div>
+        <div class="card-subtitle">41 Listings</div>
+      </ion-card>
+   
+      <ion-card style="height: 102px;">
+        <img src="assets/imgs/card-amsterdam.png"/>
+        <div class="card-title">Amsterdam</div>
+        <div class="card-subtitle">64 Listings</div>
+      </ion-card>
+    
+      <ion-card>
+        <img src="assets/imgs/card-sf.png"/>
+        <div class="card-title">San Francisco</div>
+        <div class="card-subtitle">72 Listings</div>
+      </ion-card>
+   
+      <ion-card>
+        <img src="assets/imgs/card-madison.png"/>
+        <div class="card-title">Madison</div>
+        <div class="card-subtitle">28 Listings</div>
+      </ion-card>
+
+<ion-card>
+  <ion-slides style="height: 150px;">
+
+  <ion-slide style="background-color: rgb(237, 238, 237)">
+      <img src="assets/imgs/Email-CorpEmail_500x500._CB499963220__AC_SY200_.jpg"/>
+      <h2>Slide 1</h2>
+    </ion-slide>
+  
+    <ion-slide style="background-color: rgb(237, 238, 237)">
+      <h2>Slide 2</h2>
+    </ion-slide>
+  
+    <ion-slide style="background-color: rgb(237, 238, 237)">
+      <h2>Slide 3</h2>
+    </ion-slide>
+  
+  </ion-slides>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    Explore Nearby
+  </ion-card-header>
+
+  <ion-list>
+    <button ion-item>
+      <ion-icon name="cart" item-start></ion-icon>
+      Shopping
+    </button>
+
+    <button ion-item>
+      <ion-icon name="medical" item-start></ion-icon>
+      Hospital
+    </button>
+
+    <button ion-item>
+      <ion-icon name="cafe" item-start></ion-icon>
+      Cafe
+    </button>
+
+    <button ion-item>
+      <ion-icon name="paw" item-start></ion-icon>
+      Dog Park
+    </button>
+
+     
+  </ion-list>
+</ion-card>
+
+
+
+</ion-grid>
         </ion-list>
       </div>
 
@@ -87,6 +197,8 @@
     </ion-item-sliding>
   </ion-list> -->
 
-
   <button ion-button (click)="person()" block hidden="true">Add Person</button>
+
+
+  
 </ion-content>
