@@ -10,15 +10,9 @@
     "front_View": 
         {
             "list": true,
-            "tile": false,
-            "slide": false,
+            "tile": true,
+            "slide": true,
             "card": false,
             "icon_list" : false
         }
-    ,
-    "segments": [
-        "segment1",
-        "segment2",
-        "segment3"
-    ]
 }
