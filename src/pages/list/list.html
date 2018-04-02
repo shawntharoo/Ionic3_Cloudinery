@@ -24,7 +24,8 @@
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'segment1'">
 
-      <div *ngIf="config && config.front_View.list">
+      <div>
+      <div *ngIf="config && config.front_View.list.status">
         <ion-item-sliding *ngFor="let item of items">
           <ion-item>
             <ion-thumbnail item-start *ngIf="config.icon_image">
@@ -42,9 +43,10 @@
           </ion-item-options>
         </ion-item-sliding>
       </div>
+    </div>
 
-      <div  *ngIf="config && config.front_View.card">
-        <div>
+      <div>
+        <div *ngIf="config && config.front_View.card.status">
           <ion-card *ngFor="let item of items" (click)="presentModal(item)">
             <img [src]="config.icon_image" />
             <ion-card-content>
@@ -59,7 +61,8 @@
         </div>
       </div>
 
-      <div *ngIf="config && config.front_View.tile">
+      <div>
+      <div *ngIf="config && config.front_View.tile.status">
         <ion-card>
           <ion-card-content>
             <ion-grid *ngIf="items">
@@ -73,8 +76,10 @@
           </ion-card-content>
         </ion-card>
       </div>
+    </div>
 
-      <div *ngIf="config && config.front_View.slide">
+    <div>
+      <div *ngIf="config && config.front_View.slide.status">
         <ion-card>
           <ion-slides pager style="height: 150px;">
             <ion-slide style="background-color: rgb(237, 238, 237)" *ngFor="let item of items" (click)="presentModal(item)">
@@ -83,8 +88,10 @@
           </ion-slides>
         </ion-card>
       </div>
+    </div>
 
-      <div *ngIf="config && config.front_View.icon_list">
+    <div *ngFor="let s of config.front_View.icon_list.set">
+      <div *ngIf="config && config.front_View.icon_list.status">
         <ion-card>
             <ion-card-header>
                 Deals recommended for you
@@ -100,6 +107,7 @@
               </ion-list>
         </ion-card>
       </div>
+    </div>
 
     </ion-list>
 

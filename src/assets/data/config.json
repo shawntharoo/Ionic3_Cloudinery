@@ -9,10 +9,25 @@
     ],
     "front_View": 
         {
-            "list": true,
-            "tile": true,
-            "slide": true,
-            "card": false,
-            "icon_list" : false
+            "list": {
+                "status" : true,
+                "set" : 2
+            },
+            "tile": {
+                "status" : false,
+                "set" : 2
+            },
+            "slide": {
+                "status" : false,
+                "set" : 2
+            },
+            "card": {
+                "status" : false,
+                "set" : 2
+            },
+            "icon_list" : {
+                "status" : false,
+                "set" : 2
+            }
         }
 }
