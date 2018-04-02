@@ -42,7 +42,7 @@
         </ion-item-sliding>
       </div>
 
-      <div *ngIf="false">
+      <div *ngIf="true">
         <div *ngIf="config">
         <ion-card *ngFor="let item of items">
           <img [src]="config.icon_image"/>
@@ -58,7 +58,7 @@
       </div>
       </div>
 
-      <div *ngIf="true">
+      <div *ngIf="false">
         <ion-card>
             <ion-card-content>
           <ion-grid *ngIf="config && items">
@@ -74,6 +74,7 @@
       </div>
 
     </ion-list>
+
 
     <ion-list *ngSwitchCase="'segment2'">
 

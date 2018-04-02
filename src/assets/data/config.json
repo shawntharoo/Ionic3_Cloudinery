@@ -1,9 +1,31 @@
 {
-    "header_color" : "white",
-    "icon" : true,
-    "icon_image" : "assets/imgs/car.png",
-    "number_circle" : false,
-    "priority" : [1,2,3,4],
-    "front_View" : "list",
-    "segments" : ["segment1","segment2","segment3"]
+    "header_color": "white",
+    "icon": true,
+    "icon_image": "assets/imgs/car.png",
+    "number_circle": false,
+    "priority": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "front_View": [
+        {
+            "list": true
+        },
+        {
+            "tile": false
+        },
+        {
+            "slide": false
+        },
+        {
+            "card": false
+        }
+    ],
+    "segments": [
+        "segment1",
+        "segment2",
+        "segment3"
+    ]
 }
