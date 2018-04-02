@@ -23,14 +23,15 @@
       
       <div [ngSwitch]="pet">
         <ion-list *ngSwitchCase="'segment1'">
+          <div *ngIf="false">
             <ion-item-sliding *ngFor="let item of items">
                 <ion-item *ngIf="config">
-                  <ion-avatar item-start *ngIf="config.icon_image && config.icon && !config.number_circle">
+                  <ion-thumbnail item-start *ngIf="config.icon_image && config.icon && !config.number_circle">
                     <img [src]="config.icon_image">
-                  </ion-avatar>
-                  <ion-avatar item-start *ngIf="config.number_circle">
+                  </ion-thumbnail>
+                  <!-- <ion-thumbnail item-start *ngIf="config.number_circle">
                     <ion-icon class="numberCircle">{{item.title | slice:0:2}}</ion-icon>
-                  </ion-avatar>
+                  </ion-thumbnail> -->
                   <h2>{{item.title}}</h2>
                   <p>{{item.description}}</p>
                 </ion-item>
@@ -39,6 +40,22 @@
                   <button ion-button color="danger" (click)="Delete(item)">Delete</button>
                 </ion-item-options>
               </ion-item-sliding>
+            </div>
+
+            <div *ngIf="true">
+              <ion-card>
+                  <img src="img/nin-live.png"/>
+                  <ion-card-content>
+                    <ion-card-title>
+                      Nine Inch Nails Live
+                      </ion-card-title>
+                    <p>
+                      The most popular industrial group ever, and largely
+                      responsible for bringing the music to a mass audience.
+                    </p>
+                  </ion-card-content>
+                </ion-card>
+              </div>
         </ion-list>
       
         <ion-list *ngSwitchCase="'segment2'">
