@@ -23,7 +23,6 @@ app.use(function (req, res, next) {
 });
 
 //Item details add and retrieve apis start
-//https://www.quora.com/How-can-I-store-and-access-images-using-MongoDB-mongoose-and-Node-js
 var UserItems = mongoose.model('UserItems', {
     title: String,
     description: String,
@@ -115,6 +114,11 @@ app.get('/api/persons', function (req, res) {
     });
 });
 //User details add and retrieve apis end
+
+//upload image apis
+app.post('/api/uploadImage', function (req, res) {
+    console.log(req.body);
+});
 
 app.listen(8080);
 console.log("App listening on port 8080");
