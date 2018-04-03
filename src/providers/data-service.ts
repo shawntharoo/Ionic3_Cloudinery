@@ -22,6 +22,17 @@ export class dataService {
     });
   }
 
+  getSpecificItems(name) {
+    return new Promise(resolve => {
+      this.http.get('http://localhost:8080/api/items')
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        });
+    });
+  }
+
   createItem(item) {
     return new Promise(resolve => {
       let headers = new Headers();

@@ -12,39 +12,72 @@ import { dataService } from '../../providers/data-service';
 
 export class ListPage {
   selectedItem: any;
-  items: any;
-  config: any;
-  color: any;
+  color: string;
   grid: Array<Array<string>>;
-  pet = "segment1";
+  pet: string = "segment1";
+
+  items: any;
+  list_items: any;
+  tile_items: any;
+  slide_items: any;
+  card_items: any;
+  icon_list_items: any;
+  config: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private http: Http, public dataservice: dataService) {
     this.selectedItem = navParams.get('item');
+    this.color = localStorage.getItem('back_color');
   }
-  
+
   ngOnInit() {
     this.items = [];
     this.dataservice.getItems().then((data) => {
       console.log(data);
       this.items = data;
-      this.grid = Array(Math.ceil(this.items.length/2));
+      this.grid = Array(Math.ceil(this.items.length / 2));
       let rowNum = 0;
-      for (let i = 0; i < this.items.length; i+=2) { 
-    
+      for (let i = 0; i < this.items.length; i += 2) {
+
         this.grid[rowNum] = Array(2);
         if (this.items[i]) {
           this.grid[rowNum][0] = this.items[i];
         }
-        if (this.items[i+1]) {
-          this.grid[rowNum][1] = this.items[i+1]
+        if (this.items[i + 1]) {
+          this.grid[rowNum][1] = this.items[i + 1]
         }
         rowNum++;
       }
     });
 
-    this.color = localStorage.getItem('back_color');
     this.initialList()
       .subscribe(res => {
         this.config = res;
+        if (res.front_View.list.status) {
+          this.dataservice.getSpecificItems(res.front_View.list.name).then((data) => {
+            this.list_items = data;
+          });
+        }
+        if (res.front_View.tile.status) {
+          this.dataservice.getSpecificItems(res.front_View.tile.name).then((data) => {
+            this.tile_items = data;
+          });
+        }
+        if (res.front_View.slide.status) {
+          this.dataservice.getSpecificItems(res.front_View.slide.name).then((data) => {
+            this.slide_items = data;
+          });
+        }
+        if (res.front_View.card.status) {
+          this.dataservice.getSpecificItems(res.front_View.card.name).then((data) => {
+            this.card_items = data;
+          });
+        }
+        if (res.front_View.icon_list.status) {
+          this.dataservice.getSpecificItems(res.front_View.icon_list.name).then((data) => {
+            this.icon_list_items = data;
+          });
+        }
+
       });
   }
 
