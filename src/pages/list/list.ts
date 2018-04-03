@@ -44,7 +44,10 @@ export class ListPage {
         if (res.front_View.list.status) {
           for (let i = 0; i < res.front_View.list.set.length; i++) {
             this.dataservice.getSpecificItems(res.front_View.list.set[i]).then((data) => {
-              this.list_items.push(data);
+              if(data && (Object.keys(data).length === 0)){   
+              }else{
+                this.list_items.push(data);
+              }
               if (this.list_items.length == 0) {
                 this.list_items = undefined
               }
@@ -68,7 +71,10 @@ export class ListPage {
                 }
                 rowNum++;
               }
-              this.tile_grid_list.push(this.grid);
+              if(data && (Object.keys(data).length === 0)){   
+              }else{
+                this.tile_grid_list.push(this.grid);
+              }
               if (this.tile_grid_list.length == 0) {
                 this.tile_items = undefined
               }
@@ -77,9 +83,12 @@ export class ListPage {
         }
 
         if (res.front_View.slide.status) {
-          for (let i = 0; i < res.front_View.list.set.length; i++) {
+          for (let i = 0; i < res.front_View.slide.set.length; i++) {
             this.dataservice.getSpecificItems(res.front_View.slide.set[i]).then((data) => {
-              this.slide_items.push(data);
+              if(data && (Object.keys(data).length === 0)){   
+              }else{
+                this.slide_items.push(data);
+              }
               if (this.slide_items.length == 0) {
                 this.slide_items = undefined
               }
@@ -88,9 +97,12 @@ export class ListPage {
         }
 
         if (res.front_View.card.status) {
-          for (let i = 0; i < res.front_View.list.set.length; i++) {
+          for (let i = 0; i < res.front_View.card.set.length; i++) {
             this.dataservice.getSpecificItems(res.front_View.card.set[i]).then((data) => {
-              this.card_items.push(data);
+              if(data && (Object.keys(data).length === 0)){   
+              }else{
+                this.card_items.push(data);
+              }
               if (this.card_items.length == 0) {
                 this.card_items = undefined
               }
@@ -99,9 +111,12 @@ export class ListPage {
         }
 
         if (res.front_View.icon_list.status) {
-          for (let i = 0; i < res.front_View.list.set.length; i++) {
+          for (let i = 0; i < res.front_View.icon_list.set.length; i++) {
             this.dataservice.getSpecificItems(res.front_View.icon_list.set[i]).then((data) => {
-              this.icon_list_items.push(data);
+              if(data && (Object.keys(data).length === 0)){   
+              }else{
+                this.icon_list_items.push(data);
+              }
               if (this.icon_list_items.length == 0) {
                 this.icon_list_items = undefined
               }

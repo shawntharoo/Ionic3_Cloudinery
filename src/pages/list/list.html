@@ -24,7 +24,7 @@
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'segment1'">
 
-      <div *ngIf="list_items">
+      <div *ngIf="list_items && config">
         <div *ngFor="let x of list_items">
           <ion-item-sliding *ngFor="let item of x">
             <ion-item>

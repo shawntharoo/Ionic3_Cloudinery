@@ -12,7 +12,7 @@
             "list": {
                 "name" : "list",
                 "status" : true,
-                "set" : ["list1", "list2"]
+                "set" : ["list1", "list2", "list3"]
             },
             "tile": {
                 "name" : "tile",
