@@ -9,9 +9,9 @@ import { Http, Response } from '@angular/http';
 })
 export class NewItemPage {
   todo = {
-    "title" : " ",
-    "description" : " ",
-    "category" : " ",
+    "title" : "",
+    "description" : "",
+    "category" : "",
     "priority" : 1
   }
   config: any;

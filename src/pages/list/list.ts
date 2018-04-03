@@ -42,6 +42,9 @@ export class ListPage {
         if (res.front_View.list.status) {
           this.dataservice.getSpecificItems(res.front_View.list.name).then((data) => {
             this.list_items = data;
+            if(this.list_items.length == 0){
+              this.list_items= undefined
+            }
           });
         }
         if (res.front_View.tile.status) {
@@ -60,21 +63,33 @@ export class ListPage {
               }
               rowNum++;
             }
+            if(this.tile_items.length == 0){
+              this.tile_items = undefined
+            }
           });
         }
         if (res.front_View.slide.status) {
           this.dataservice.getSpecificItems(res.front_View.slide.name).then((data) => {
             this.slide_items = data;
+            if(this.slide_items.length == 0){
+              this.slide_items = undefined
+            }
           });
         }
         if (res.front_View.card.status) {
           this.dataservice.getSpecificItems(res.front_View.card.name).then((data) => {
             this.card_items = data;
+            if(this.card_items.length == 0){
+              this.card_items = undefined
+            }
           });
         }
         if (res.front_View.icon_list.status) {
           this.dataservice.getSpecificItems(res.front_View.icon_list.name).then((data) => {
             this.icon_list_items = data;
+            if(this.icon_list_items.length == 0){
+              this.icon_list_items= undefined
+            }
           });
         }
 

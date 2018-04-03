@@ -42,7 +42,7 @@ app.get('/api/items', function (req, res) {
 });
 
 app.get('/api/items/:item_category', function (req, res) {
-    UserItems.find({'category' : req.params.item_category},function (err, items) {
+    UserItems.find({'category' : req.params.item_category}).exec(function (err, items) {
         if (err)
             res.send(err)
 

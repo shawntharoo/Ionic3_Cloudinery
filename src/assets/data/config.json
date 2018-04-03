@@ -16,22 +16,22 @@
             },
             "tile": {
                 "name" : "tile",
-                "status" : false,
+                "status" : true,
                 "set" : 2
             },
             "slide": {
                 "name" : "slide",
-                "status" : false,
+                "status" : true,
                 "set" : 2
             },
             "card": {
                 "name" : "card",
-                "status" : false,
+                "status" : true,
                 "set" : 2
             },
             "icon_list" : {
                 "name" : "icon_list",
-                "status" : false,
+                "status" : true,
                 "set" : 2
             }
         }
