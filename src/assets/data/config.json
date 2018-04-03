@@ -12,27 +12,27 @@
             "list": {
                 "name" : "list",
                 "status" : true,
-                "set" : 2
+                "set" : ["list1", "list2"]
             },
             "tile": {
                 "name" : "tile",
                 "status" : true,
-                "set" : 2
+                "set" : ["tile1", "tile2"]
             },
             "slide": {
                 "name" : "slide",
                 "status" : true,
-                "set" : 2
+                "set" : ["slide1", "slide2"]
             },
             "card": {
                 "name" : "card",
                 "status" : true,
-                "set" : 2
+                "set" : ["card1", "card2"]
             },
             "icon_list" : {
                 "name" : "icon_list",
                 "status" : true,
-                "set" : 2
+                "set" : ["icon_list1", "icon_list2"]
             }
         }
 }

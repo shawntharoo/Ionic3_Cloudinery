@@ -24,9 +24,9 @@
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'segment1'">
 
-      <div>
-        <div *ngIf="list_items">
-          <ion-item-sliding *ngFor="let item of list_items">
+      <div *ngIf="list_items">
+        <div *ngFor="let x of list_items">
+          <ion-item-sliding *ngFor="let item of x">
             <ion-item>
               <ion-thumbnail item-start *ngIf="config.icon_image">
                 <img [src]="config.icon_image">
@@ -45,9 +45,9 @@
         </div>
       </div>
 
-      <div>
-        <div *ngIf="card_items && config">
-          <ion-card *ngFor="let item of card_items" (click)="presentModal(item)">
+      <div *ngIf="card_items && config">
+        <div *ngFor="let x of card_items">
+          <ion-card *ngFor="let item of x" (click)="presentModal(item)">
             <img [src]="config.icon_image" />
             <ion-card-content>
               <ion-card-title>
@@ -61,17 +61,17 @@
         </div>
       </div>
 
-      <div>
-        <div *ngIf="tile_items && config">
+      <div *ngIf="tile_grid_list && config">
+        <div *ngFor="let grid of tile_grid_list">
           <ion-card>
             <ion-card-content>
               <ion-grid>
                 <ion-row wrap class="ionrow" *ngFor="let row of grid">
                   <ion-col col-6 *ngFor="let data of row" (click)="presentModal(data)">
-                    <div  *ngIf="data">
-                    <img [src]="config.icon_image">
-                    <h2>{{data.title}}</h2>
-                  </div>
+                    <div *ngIf="data">
+                      <img [src]="config.icon_image">
+                      <h2>{{data.title}}</h2>
+                    </div>
                   </ion-col>
                 </ion-row>
               </ion-grid>
@@ -80,15 +80,15 @@
         </div>
       </div>
 
-      <div>
-        <div *ngIf="icon_list_items && config">
+      <div *ngIf="icon_list_items && config">
+        <div *ngFor="let x of icon_list_items">
           <ion-card>
             <ion-card-header>
               Deals recommended for you
             </ion-card-header>
 
             <ion-list>
-              <button ion-item *ngFor="let item of icon_list_items" (click)="presentModal(item)">
+              <button ion-item *ngFor="let item of x" (click)="presentModal(item)">
                 <ion-avatar item-start *ngIf="config.icon_image">
                   <img [src]="config.icon_image">
                 </ion-avatar>
@@ -99,17 +99,17 @@
         </div>
       </div>
 
-      <div>
-          <div *ngIf="slide_items && config">
-            <ion-card>
-              <ion-slides pager style="height: 150px;">
-                <ion-slide style="background-color: rgb(237, 238, 237)" *ngFor="let item of slide_items" (click)="presentModal(item)">
-                  <img [src]="config.icon_image" class="slide_img" />
-                </ion-slide>
-              </ion-slides>
-            </ion-card>
-          </div>
+      <div *ngIf="slide_items && config">
+        <div *ngFor="let x of slide_items">
+          <ion-card>
+            <ion-slides pager style="height: 150px;">
+              <ion-slide style="background-color: rgb(237, 238, 237)" *ngFor="let item of x" (click)="presentModal(item)">
+                <img [src]="config.icon_image" class="slide_img" />
+              </ion-slide>
+            </ion-slides>
+          </ion-card>
         </div>
+      </div>
 
     </ion-list>
 

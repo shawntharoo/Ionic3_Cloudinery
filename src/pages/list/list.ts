@@ -17,11 +17,12 @@ export class ListPage {
   pet: string = "segment1";
 
   items: any;
-  list_items: any;
+  list_items = [];
   tile_items: any;
-  slide_items: any;
-  card_items: any;
-  icon_list_items: any;
+  slide_items = [];
+  card_items = [];
+  icon_list_items = [];
+  tile_grid_list = [];
   config: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private http: Http, public dataservice: dataService) {
@@ -39,58 +40,73 @@ export class ListPage {
     this.initialList()
       .subscribe(res => {
         this.config = res;
-        if (res.front_View.list.status) {
-          this.dataservice.getSpecificItems(res.front_View.list.name).then((data) => {
-            this.list_items = data;
-            if(this.list_items.length == 0){
-              this.list_items= undefined
-            }
-          });
-        }
-        if (res.front_View.tile.status) {
-          this.dataservice.getSpecificItems(res.front_View.tile.name).then((data) => {
-            this.tile_items = data;
-            this.grid = Array(Math.ceil(this.tile_items.length / 2));
-            let rowNum = 0;
-            for (let i = 0; i < this.tile_items.length; i += 2) {
 
-              this.grid[rowNum] = Array(2);
-              if (this.tile_items[i]) {
-                this.grid[rowNum][0] = this.tile_items[i];
+        if (res.front_View.list.status) {
+          for (let i = 0; i < res.front_View.list.set.length; i++) {
+            this.dataservice.getSpecificItems(res.front_View.list.set[i]).then((data) => {
+              this.list_items.push(data);
+              if (this.list_items.length == 0) {
+                this.list_items = undefined
               }
-              if (this.tile_items[i + 1]) {
-                this.grid[rowNum][1] = this.tile_items[i + 1]
-              }
-              rowNum++;
-            }
-            if(this.tile_items.length == 0){
-              this.tile_items = undefined
-            }
-          });
+            });
+          }
         }
+
+        if (res.front_View.tile.status) {
+          for (let i = 0; i < res.front_View.tile.set.length; i++) {
+            this.dataservice.getSpecificItems(res.front_View.tile.set[i]).then((data) => {
+              this.tile_items = data;
+              this.grid = Array(Math.ceil(this.tile_items.length / 2));
+              let rowNum = 0;
+              for (let i = 0; i < this.tile_items.length; i += 2) {
+                this.grid[rowNum] = Array(2);
+                if (this.tile_items[i]) {
+                  this.grid[rowNum][0] = this.tile_items[i];
+                }
+                if (this.tile_items[i + 1]) {
+                  this.grid[rowNum][1] = this.tile_items[i + 1]
+                }
+                rowNum++;
+              }
+              this.tile_grid_list.push(this.grid);
+              if (this.tile_grid_list.length == 0) {
+                this.tile_items = undefined
+              }
+            });
+          }
+        }
+
         if (res.front_View.slide.status) {
-          this.dataservice.getSpecificItems(res.front_View.slide.name).then((data) => {
-            this.slide_items = data;
-            if(this.slide_items.length == 0){
-              this.slide_items = undefined
-            }
-          });
+          for (let i = 0; i < res.front_View.list.set.length; i++) {
+            this.dataservice.getSpecificItems(res.front_View.slide.set[i]).then((data) => {
+              this.slide_items.push(data);
+              if (this.slide_items.length == 0) {
+                this.slide_items = undefined
+              }
+            });
+          }
         }
+
         if (res.front_View.card.status) {
-          this.dataservice.getSpecificItems(res.front_View.card.name).then((data) => {
-            this.card_items = data;
-            if(this.card_items.length == 0){
-              this.card_items = undefined
-            }
-          });
+          for (let i = 0; i < res.front_View.list.set.length; i++) {
+            this.dataservice.getSpecificItems(res.front_View.card.set[i]).then((data) => {
+              this.card_items.push(data);
+              if (this.card_items.length == 0) {
+                this.card_items = undefined
+              }
+            });
+          }
         }
+
         if (res.front_View.icon_list.status) {
-          this.dataservice.getSpecificItems(res.front_View.icon_list.name).then((data) => {
-            this.icon_list_items = data;
-            if(this.icon_list_items.length == 0){
-              this.icon_list_items= undefined
-            }
-          });
+          for (let i = 0; i < res.front_View.list.set.length; i++) {
+            this.dataservice.getSpecificItems(res.front_View.icon_list.set[i]).then((data) => {
+              this.icon_list_items.push(data);
+              if (this.icon_list_items.length == 0) {
+                this.icon_list_items = undefined
+              }
+            });
+          }
         }
 
       });
