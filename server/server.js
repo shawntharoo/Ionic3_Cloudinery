@@ -23,6 +23,7 @@ app.use(function (req, res, next) {
 });
 
 //Item details add and retrieve apis start
+//https://www.quora.com/How-can-I-store-and-access-images-using-MongoDB-mongoose-and-Node-js
 var UserItems = mongoose.model('UserItems', {
     title: String,
     description: String,
@@ -41,7 +42,7 @@ app.get('/api/items', function (req, res) {
 });
 
 app.get('/api/items/:item_category', function (req, res) {
-    UserItems.find(function (err, items) {
+    UserItems.find({'category' : req.params.item_category},function (err, items) {
         if (err)
             res.send(err)
 

@@ -50,7 +50,7 @@ export class ListPage {
             this.grid = Array(Math.ceil(this.tile_items.length / 2));
             let rowNum = 0;
             for (let i = 0; i < this.tile_items.length; i += 2) {
-      
+
               this.grid[rowNum] = Array(2);
               if (this.tile_items[i]) {
                 this.grid[rowNum][0] = this.tile_items[i];

@@ -46,7 +46,7 @@
       </div>
 
       <div>
-        <div *ngIf="card_items">
+        <div *ngIf="card_items && config">
           <ion-card *ngFor="let item of card_items" (click)="presentModal(item)">
             <img [src]="config.icon_image" />
             <ion-card-content>
@@ -62,10 +62,10 @@
       </div>
 
       <div>
-        <div *ngIf="tile_items">
+        <div *ngIf="config">
           <ion-card>
             <ion-card-content>
-              <ion-grid *ngIf="items">
+              <ion-grid>
                 <ion-row wrap class="ionrow" *ngFor="let row of grid">
                   <ion-col col-6 *ngFor="let data of row" (click)="presentModal(file_uri)">
                     <img [src]="config.icon_image">
@@ -79,7 +79,7 @@
       </div>
 
       <div>
-        <div *ngIf="slide_items">
+        <div *ngIf="slide_items && config">
           <ion-card>
             <ion-slides pager style="height: 150px;">
               <ion-slide style="background-color: rgb(237, 238, 237)" *ngFor="let item of slide_items" (click)="presentModal(item)">
@@ -91,7 +91,7 @@
       </div>
 
       <div>
-        <div *ngIf="icon_list_items">
+        <div *ngIf="icon_list_items && config">
           <ion-card>
             <ion-card-header>
               Deals recommended for you
