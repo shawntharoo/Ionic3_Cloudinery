@@ -34,19 +34,6 @@ export class ListPage {
     this.dataservice.getItems().then((data) => {
       console.log(data);
       this.items = data;
-      this.grid = Array(Math.ceil(this.items.length / 2));
-      let rowNum = 0;
-      for (let i = 0; i < this.items.length; i += 2) {
-
-        this.grid[rowNum] = Array(2);
-        if (this.items[i]) {
-          this.grid[rowNum][0] = this.items[i];
-        }
-        if (this.items[i + 1]) {
-          this.grid[rowNum][1] = this.items[i + 1]
-        }
-        rowNum++;
-      }
     });
 
     this.initialList()
@@ -60,6 +47,19 @@ export class ListPage {
         if (res.front_View.tile.status) {
           this.dataservice.getSpecificItems(res.front_View.tile.name).then((data) => {
             this.tile_items = data;
+            this.grid = Array(Math.ceil(this.tile_items.length / 2));
+            let rowNum = 0;
+            for (let i = 0; i < this.tile_items.length; i += 2) {
+      
+              this.grid[rowNum] = Array(2);
+              if (this.tile_items[i]) {
+                this.grid[rowNum][0] = this.tile_items[i];
+              }
+              if (this.tile_items[i + 1]) {
+                this.grid[rowNum][1] = this.tile_items[i + 1]
+              }
+              rowNum++;
+            }
           });
         }
         if (res.front_View.slide.status) {

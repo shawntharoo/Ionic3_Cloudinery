@@ -1,7 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Nav } from 'ionic-angular';
 import { Http, Response } from '@angular/http';
 import { dataService } from '../../providers/data-service';
 

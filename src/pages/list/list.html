@@ -25,29 +25,29 @@
     <ion-list *ngSwitchCase="'segment1'">
 
       <div>
-      <div *ngIf="config && config.front_View.list.status">
-        <ion-item-sliding *ngFor="let item of items">
-          <ion-item>
-            <ion-thumbnail item-start *ngIf="config.icon_image">
-              <img [src]="config.icon_image">
-            </ion-thumbnail>
-            <!-- <ion-thumbnail item-start *ngIf="config.number_circle">
+        <div *ngIf="list_items">
+          <ion-item-sliding *ngFor="let item of list_items">
+            <ion-item>
+              <ion-thumbnail item-start *ngIf="config.icon_image">
+                <img [src]="config.icon_image">
+              </ion-thumbnail>
+              <!-- <ion-thumbnail item-start *ngIf="config.number_circle">
                               <ion-icon class="numberCircle">{{item.title | slice:0:2}}</ion-icon>
                             </ion-thumbnail> -->
-            <h2>{{item.title}}</h2>
-            <p>{{item.description}}</p>
-          </ion-item>
-          <ion-item-options side="right">
-            <button ion-button (click)="presentModal(item)">View</button>
-            <button ion-button color="danger" (click)="Delete(item)">Delete</button>
-          </ion-item-options>
-        </ion-item-sliding>
+              <h2>{{item.title}}</h2>
+              <p>{{item.description}}</p>
+            </ion-item>
+            <ion-item-options side="right">
+              <button ion-button (click)="presentModal(item)">View</button>
+              <button ion-button color="danger" (click)="Delete(item)">Delete</button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </div>
       </div>
-    </div>
 
       <div>
-        <div *ngIf="config && config.front_View.card.status">
-          <ion-card *ngFor="let item of items" (click)="presentModal(item)">
+        <div *ngIf="card_items">
+          <ion-card *ngFor="let item of card_items" (click)="presentModal(item)">
             <img [src]="config.icon_image" />
             <ion-card-content>
               <ion-card-title>
@@ -62,52 +62,52 @@
       </div>
 
       <div>
-      <div *ngIf="config && config.front_View.tile.status">
-        <ion-card>
-          <ion-card-content>
-            <ion-grid *ngIf="items">
-              <ion-row wrap class="ionrow" *ngFor="let row of grid">
-                <ion-col col-6 *ngFor="let file_uri of row" (click)="presentModal(file_uri)">
-                  <img [src]="config.icon_image">
-                  <h2>{{file_uri.title}}</h2>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-card-content>
-        </ion-card>
+        <div *ngIf="tile_items">
+          <ion-card>
+            <ion-card-content>
+              <ion-grid *ngIf="items">
+                <ion-row wrap class="ionrow" *ngFor="let row of grid">
+                  <ion-col col-6 *ngFor="let data of row" (click)="presentModal(file_uri)">
+                    <img [src]="config.icon_image">
+                    <h2>{{data.title}}</h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </div>
       </div>
-    </div>
 
-    <div>
-      <div *ngIf="config && config.front_View.slide.status">
-        <ion-card>
-          <ion-slides pager style="height: 150px;">
-            <ion-slide style="background-color: rgb(237, 238, 237)" *ngFor="let item of items" (click)="presentModal(item)">
-              <img [src]="config.icon_image" class="slide_img" />
-            </ion-slide>
-          </ion-slides>
-        </ion-card>
+      <div>
+        <div *ngIf="slide_items">
+          <ion-card>
+            <ion-slides pager style="height: 150px;">
+              <ion-slide style="background-color: rgb(237, 238, 237)" *ngFor="let item of slide_items" (click)="presentModal(item)">
+                <img [src]="config.icon_image" class="slide_img" />
+              </ion-slide>
+            </ion-slides>
+          </ion-card>
+        </div>
       </div>
-    </div>
 
-    <div *ngFor="let s of config.front_View.icon_list.set">
-      <div *ngIf="config && config.front_View.icon_list.status">
-        <ion-card>
+      <div>
+        <div *ngIf="icon_list_items">
+          <ion-card>
             <ion-card-header>
-                Deals recommended for you
-              </ion-card-header>
-    
-              <ion-list>
-                <button ion-item *ngFor="let item of items" (click)="presentModal(item)">
-                    <ion-avatar item-start *ngIf="config.icon_image">
-                        <img [src]="config.icon_image">
-                      </ion-avatar>
-                  Vehicle
-                </button>
-              </ion-list>
-        </ion-card>
+              Deals recommended for you
+            </ion-card-header>
+
+            <ion-list>
+              <button ion-item *ngFor="let item of icon_list_items" (click)="presentModal(item)">
+                <ion-avatar item-start *ngIf="config.icon_image">
+                  <img [src]="config.icon_image">
+                </ion-avatar>
+                Vehicle
+              </button>
+            </ion-list>
+          </ion-card>
+        </div>
       </div>
-    </div>
 
     </ion-list>
 
@@ -120,26 +120,17 @@
           <div class="card-subtitle">41 Listings</div>
         </ion-card>
 
-
         <ion-card>
           <ion-slides pager style="height: 150px;">
-
             <ion-slide style="background-color: rgb(237, 238, 237)">
               <img src=" assets/imgs/2_DB_440x200_Women_Accessories_April18._CB502513614_.jpg" />
-
-
             </ion-slide>
-
             <ion-slide style="background-color: rgb(237, 238, 237)">
               <img src="assets/imgs/1057873_us_pc_hardware_siggraph_gw_desktop_billboard_440x200._CB505202194_.jpg" />
-
             </ion-slide>
-
             <ion-slide style="background-color: rgb(237, 238, 237)">
               <img src="assets/imgs/1_BD_440x200_Gift_April18._CB502503690_.jpg" />
-
             </ion-slide>
-
           </ion-slides>
         </ion-card>
 
@@ -147,44 +138,37 @@
           <ion-card-header>
             Deals recommended for you
           </ion-card-header>
-
           <ion-list>
             <button ion-item>
-                <ion-avatar item-start *ngIf="config.icon_image">
-                    <img [src]="config.icon_image">
-                  </ion-avatar>
+              <ion-avatar item-start *ngIf="config.icon_image">
+                <img [src]="config.icon_image">
+              </ion-avatar>
               Vehicle
             </button>
-
             <button ion-item>
-                <ion-avatar item-start *ngIf="config.icon_image">
-                    <img [src]="config.icon_image">
-                  </ion-avatar>
+              <ion-avatar item-start *ngIf="config.icon_image">
+                <img [src]="config.icon_image">
+              </ion-avatar>
               Vehicle
             </button>
-
             <button ion-item>
-                <ion-avatar item-start *ngIf="config.icon_image">
-                    <img [src]="config.icon_image">
-                  </ion-avatar>
+              <ion-avatar item-start *ngIf="config.icon_image">
+                <img [src]="config.icon_image">
+              </ion-avatar>
               Vehicle
             </button>
-
             <button ion-item>
-                <ion-avatar item-start *ngIf="config.icon_image">
-                    <img [src]="config.icon_image">
-                  </ion-avatar>
+              <ion-avatar item-start *ngIf="config.icon_image">
+                <img [src]="config.icon_image">
+              </ion-avatar>
               Vehicle
             </button>
-
-
           </ion-list>
         </ion-card>
-
-
-
       </ion-grid>
+
     </ion-list>
+
   </div>
 
   <!-- <ion-list>

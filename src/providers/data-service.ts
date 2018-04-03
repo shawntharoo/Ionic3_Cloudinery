@@ -24,7 +24,7 @@ export class dataService {
 
   getSpecificItems(name) {
     return new Promise(resolve => {
-      this.http.get('http://localhost:8080/api/items')
+      this.http.get('http://localhost:8080/api/items/'  + name)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;

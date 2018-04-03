@@ -11,6 +11,7 @@ export class NewItemPage {
   todo = {
     "title" : " ",
     "description" : " ",
+    "category" : " ",
     "priority" : 1
   }
   config: any;
@@ -47,6 +48,7 @@ export class NewItemPage {
     this.dataservice.createItem(this.todo).then((res) => {
       this.todo.title = null;
       this.todo.description = null;
+      this.todo.category = null;
       this.todo.priority = 1;
       this.showAlert();
     })
