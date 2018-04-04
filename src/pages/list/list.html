@@ -23,7 +23,7 @@
 
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'segment1'">
-
+<ion-grid style="background: #c1bfbf;">
       <div *ngIf="list_items && config">
         <div *ngFor="let x of list_items">
           <ion-item-sliding *ngFor="let item of x">
@@ -110,7 +110,7 @@
           </ion-card>
         </div>
       </div>
-
+    </ion-grid>
     </ion-list>
 
     <ion-list *ngSwitchCase="'segment2'">

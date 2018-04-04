@@ -21,6 +21,8 @@ export class NewItemPage {
   }
   config: any;
   color: any;
+  imageChosen: any = 0;
+  imagePath: any;
 
   constructor(public navCtrl: NavController,
     public dataservice: dataService,
@@ -59,11 +61,12 @@ export class NewItemPage {
   logForm() {
     console.log(this.todo)
     this.dataservice.createItem(this.todo).then((res) => {
+      this.uploadFile();
       this.todo.title = null;
       this.todo.description = null;
       this.todo.category = null;
       this.todo.priority = 1;
-      this.showAlert();
+      //this.showAlert();
     })
   }
 
@@ -76,6 +79,7 @@ export class NewItemPage {
 
     this.camera.getPicture(options).then((imageData) => {
       this.imageURI = imageData;
+      this.imageChosen = 1;
     }, (err) => {
       console.log(err);
       this.presentToast(err);
@@ -102,7 +106,7 @@ export class NewItemPage {
         console.log(data + " Uploaded Successfully");
         this.imageFileName = "http://192.168.0.7:8080/static/images/ionicfile.jpg"
         loader.dismiss();
-        this.presentToast("Image uploaded successfully");
+        this.presentToast("New Item Added successfully");
       }, (err) => {
         console.log(err);
         loader.dismiss();
