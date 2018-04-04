@@ -11,8 +11,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 })
 export class NewItemPage {
   imageURI: any;
-  imageFileName: any;
-
+  imageChosen: any = 0;
   todo = {
     "title": "",
     "description": "",
@@ -22,8 +21,6 @@ export class NewItemPage {
   }
   config: any;
   color: any;
-  imageChosen: any = 0;
-  imagePath: any;
 
   constructor(public navCtrl: NavController,
     public dataservice: dataService,
@@ -74,7 +71,6 @@ export class NewItemPage {
         //end of move section
       })
     });
-
     //uncomment this section when build
     //this.uploadFile();
   }
