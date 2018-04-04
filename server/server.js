@@ -6,6 +6,13 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var cors = require('cors');
 
+var cloudinary = require('cloudinary');
+cloudinary.config({
+    cloud_name: 'gemification',
+    api_key: '623882295817265',
+    api_secret: 'uo1o5I5dwh8qb6UO-VpZ971aMuw'
+});
+
 mongoose.connect('mongodb://localhost/userItemList');
 
 app.use(morgan('dev'));
@@ -27,7 +34,8 @@ var UserItems = mongoose.model('UserItems', {
     title: String,
     description: String,
     category: String,
-    priority: Number
+    priority: Number,
+    image : String
 });
 
 app.get('/api/items', function (req, res) {
@@ -41,7 +49,7 @@ app.get('/api/items', function (req, res) {
 });
 
 app.get('/api/items/:item_category', function (req, res) {
-    UserItems.find({'category' : req.params.item_category}).exec(function (err, items) {
+    UserItems.find({ 'category': req.params.item_category }).exec(function (err, items) {
         if (err)
             res.send(err)
 
@@ -54,7 +62,8 @@ app.post('/api/items', function (req, res) {
         title: req.body.title,
         description: req.body.description,
         category: req.body.category,
-        priority: req.body.priority
+        priority: req.body.priority,
+        image: req.body.image
     }, function (err, item) {
         if (err)
             res.send(err);
@@ -115,10 +124,13 @@ app.get('/api/persons', function (req, res) {
 });
 //User details add and retrieve apis end
 
-//upload image apis
+//upload image apis start
 app.post('/api/uploadImage', function (req, res) {
-    console.log(req.body);
+    cloudinary.uploader.upload("/Users/admin/Desktop/amazon_mobile/src/assets/imgs/1_BD_440x200_Gift_April18._CB502503690_.jpg", function (result) {
+        res.json(result);
+    });
 });
+//upload image apis end
 
 app.listen(8080);
 console.log("App listening on port 8080");

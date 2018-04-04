@@ -48,7 +48,8 @@
       <div *ngIf="card_items && config">
         <div *ngFor="let x of card_items">
           <ion-card *ngFor="let item of x" (click)="presentModal(item)">
-            <img [src]="config.icon_image" />
+            <!-- <img [src]="config.icon_image" /> -->
+            <img [src]="item.image" /> 
             <ion-card-content>
               <ion-card-title>
                 {{item.title}}

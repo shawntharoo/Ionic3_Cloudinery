@@ -11,6 +11,19 @@ export class dataService {
     this.data = null;
   }
 
+  uploadImage(){
+    return new Promise(resolve => {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      this.http.post('http://localhost:8080/api/uploadImage', {url : ""})
+        .subscribe(res => {
+          console.log(res.json());
+          resolve(res.json());
+        });
+    });
+  }
+
+
   getItems() {
     return new Promise(resolve => {
       this.http.get('http://localhost:8080/api/items')
