@@ -4,12 +4,14 @@ import { dataService } from '../../providers/data-service';
 import { Http, Response } from '@angular/http';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { File } from '@ionic-native/file';
 
 @Component({
   selector: 'page-newItem',
   templateUrl: 'newItem.html'
 })
 export class NewItemPage {
+  imageNewPath: any;
   imageURI: any;
   imageChosen: any = 0;
   todo = {
@@ -67,7 +69,7 @@ export class NewItemPage {
         this.todo.category = null;
         this.todo.priority = 1;
         this.todo.image = null;
-        //this.showAlert();
+        this.showAlert();
         //end of move section
       })
     });
@@ -82,8 +84,21 @@ export class NewItemPage {
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
     this.camera.getPicture(options).then((imageData) => {
-      this.imageURI = imageData;
-      this.imageChosen = 1;
+
+      // var sourceDirectory = imageData.substring(0, imageData.lastIndexOf('/') + 1);
+      // var sourceFileName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.length);
+      // sourceFileName = sourceFileName.split('?').shift();
+      // File.copyFile(sourceDirectory, sourceFileName, cordova.file.externalApplicationStorageDirectory, sourceFileName).then((result: any) => {
+      //   this.imageURI = imageData;
+      //   this.imageChosen = 1;
+      //   this.imageNewPath = result.nativeURL;
+      // }, (err) => {
+      //   alert(JSON.stringify(err));
+      // })
+
+        this.imageURI = imageData;
+        this.imageChosen = 1;
+        
     }, (err) => {
       console.log(err);
       this.presentToast(err);

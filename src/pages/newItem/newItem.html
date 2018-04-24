@@ -15,7 +15,8 @@
         <ion-icon (click)="getImage()" name="cloud-upload"></ion-icon>
       </div>
       <div *ngIf="imageChosen == 1" class="img-preview">
-        <img [src]="imageURI" alt="">
+        <p style="font-size:3px">{{imageURI}}</p>
+        <img src="imageURI" alt="">
       </div>
     </ion-card-header>
 

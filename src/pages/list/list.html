@@ -91,7 +91,7 @@
             <ion-list>
               <button ion-item *ngFor="let item of x" (click)="presentModal(item)">
                 <ion-avatar item-start *ngIf="config.icon_image">
-                  <img [src]="config.icon_image">
+                  <img [src]="item.image">
                 </ion-avatar>
                 {{item.title}}
               </button>

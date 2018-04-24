@@ -126,7 +126,7 @@ app.get('/api/persons', function (req, res) {
 
 //upload image apis start
 app.post('/api/uploadImage', function (req, res) {
-    cloudinary.uploader.upload("/Users/admin/Desktop/amazon_mobile/src/assets/imgs/1_BD_440x200_Gift_April18._CB502503690_.jpg", function (result) {
+    cloudinary.uploader.upload("/Users/admin/Library/Developer/CoreSimulator/Devices/822BDDBE-8537-4477-B587-2DA7FBDFAAD5/data/Containers/Data/Application/DB77632A-DA1C-4B3D-89D8-931A775D32AD/tmp/cdv_photo_002.jpg", function (result) {
         res.json(result);
     });
 });
