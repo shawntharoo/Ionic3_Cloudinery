@@ -9,8 +9,8 @@ var cors = require('cors');
 var cloudinary = require('cloudinary');
 cloudinary.config({
     cloud_name: 'gemification',
-    api_key: '623882295817265',
-    api_secret: 'uo1o5I5dwh8qb6UO-VpZ971aMuw'
+    api_key: '',
+    api_secret: ''
 });
 
 mongoose.connect('mongodb://localhost/userItemList');
